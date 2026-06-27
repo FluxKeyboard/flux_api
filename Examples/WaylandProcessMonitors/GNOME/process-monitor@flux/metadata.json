@@ -1,0 +1,7 @@
+{
+  "uuid": "process-monitor@flux",
+  "name": "Process Monitor",
+  "description": "Monitors the current active process to communicate this back to Polymath, in order to have automatic profile switching",
+  "shell-version": ["45", "46"],
+  "version": 1
+}

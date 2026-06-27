@@ -1,0 +1,12 @@
+{
+  "KPackageStructure": "KWin/Script",
+  "KPlugin": {
+    "Id": "waylandProcessMonitor",
+    "Name": "Wayland Process Monitor",
+    "Description": "Monitors the active processes on Wayland based OS' and communicates this to Polymath through the Polymath API",
+    "Version": "1.0",
+    "EnabledByDefault": true
+  },
+  "X-Plasma-API": "javascript",
+  "X-Plasma-MainScript": "code/main.js"
+}
