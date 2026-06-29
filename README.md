@@ -26,8 +26,8 @@ For your plugins you will need to get the certificate to create a security conte
 
 All URIs are relative to _https://localhost:PORT/v1_
 
-| Method                                                                                      | HTTP request                            | Description                                   |     |
-| ------------------------------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------- | --- |
+| Method                                                                                      | HTTP request                            | Description                                   |
+| ------------------------------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------- |
 | [**authenticationCheckGet**](Apis/DefaultApi.md#authenticationcheckget)                     | **GET** /authentication/check           | Validate API key                              |
 | [**authenticationRegisterPost**](Apis/DefaultApi.md#authenticationregisterpost)             | **POST** /authentication/register       | Register application and generate API key     |
 | [**configAddIconPost**](Apis/DefaultApi.md#configaddiconpost)                               | **POST** /config/addIcon                | Add icons to configuration                    |
