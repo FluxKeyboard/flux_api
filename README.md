@@ -4,7 +4,7 @@
 
 ## TLS Certificates
 
-The Flux Polymath API uses a self signed TLS certificate. These certificates are generated at runtime and replaced as needed so that each installation has a unique certificate.
+The Flux Polymath API uses a self signed TLS certificate. These certificates are generated at runtime and replaced as needed (when they expire) so that each installation has a unique certificate.
 
 For your plugins you will need to get the certificate to create a security context in your requests. The locations are as follows
 
