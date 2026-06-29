@@ -79,12 +79,17 @@ from plyer import notification
 
 # If there are any messages we need to send to the user, we send them as an OS level notification through here
 def notify(title, message):
-    notification.notify(
-        title=title,
-        message=message,
-        app_name="Polymath Blender Addon",
-        timeout=3
-    )
+
+    try:
+        notification.notify(
+            title=title,
+            message=message,
+            app_name="Polymath Blender Addon",
+            timeout=3
+        )
+    except NotImplementedError:
+        print(f"{title}: {message}")
+
 
 
 _last_workspace = None
