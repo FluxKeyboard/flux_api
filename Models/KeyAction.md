@@ -4,7 +4,7 @@
 
 | Name          | Type        | Description                                                                            | Notes      |
 | ------------- | ----------- | -------------------------------------------------------------------------------------- | ---------- |
-| **keyCode**   | **String**  | The keycode that is                                                                    |            |
+| **keyCode**   | **String**  | The key code that is attached the key action                                           |            |
 | **modifiers** | Object      |                                                                                        | [optional] |
 | **type**      | **Integer** | Whether or not it is a normal key or a special key, like a macro or layer changing key |            |
 
