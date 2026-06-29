@@ -26,19 +26,19 @@ For your plugins you will need to get the certificate to create a security conte
 
 All URIs are relative to _https://localhost:PORT/v1_
 
-| Method       | HTTP request                                                                                | Description                             |                                               |
-| ------------ | ------------------------------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------- |
-| _DefaultApi_ | [**authenticationCheckGet**](Apis/DefaultApi.md#authenticationcheckget)                     | **GET** /authentication/check           | Validate API key                              |
-| _DefaultApi_ | [**authenticationRegisterPost**](Apis/DefaultApi.md#authenticationregisterpost)             | **POST** /authentication/register       | Register application and generate API key     |
-| _DefaultApi_ | [**configAddIconPost**](Apis/DefaultApi.md#configaddiconpost)                               | **POST** /config/addIcon                | Add icons to configuration                    |
-| _DefaultApi_ | [**configAddKeystyleToAppearancePut**](Apis/DefaultApi.md#configaddkeystyletoappearanceput) | **PUT** /config/addKeystyleToAppearance | Add keystyle(s) to appearance                 |
-| _DefaultApi_ | [**configChangeGet**](Apis/DefaultApi.md#configchangeget)                                   | **GET** /configChange                   | WebSocket session stream                      |
-| _DefaultApi_ | [**configImportPost**](Apis/DefaultApi.md#configimportpost)                                 | **POST** /config/import                 | Import .flux configuration file               |
-| _DefaultApi_ | [**configKeymapDataGet**](Apis/DefaultApi.md#configkeymapdataget)                           | **GET** /config/keymapData              | Get keymap data                               |
-| _DefaultApi_ | [**configSavePost**](Apis/DefaultApi.md#configsavepost)                                     | **POST** /config/save                   | Save configuration to keyboard                |
-| _DefaultApi_ | [**configUpdateActiveProcessPost**](Apis/DefaultApi.md#configupdateactiveprocesspost)       | **POST** /config/updateActiveProcess    | Update foreground active process (Linux only) |
-| _DefaultApi_ | [**configUpdateProcessesPost**](Apis/DefaultApi.md#configupdateprocessespost)               | **POST** /config/updateProcesses        | Update list of active processes on Linux      |
-| _DefaultApi_ | [**docsGet**](Apis/DefaultApi.md#docsget)                                                   | **GET** /docs                           | Link to documentation                         |
+| Method                                                                                      | HTTP request                            | Description                                   |     |
+| ------------------------------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------- | --- |
+| [**authenticationCheckGet**](Apis/DefaultApi.md#authenticationcheckget)                     | **GET** /authentication/check           | Validate API key                              |
+| [**authenticationRegisterPost**](Apis/DefaultApi.md#authenticationregisterpost)             | **POST** /authentication/register       | Register application and generate API key     |
+| [**configAddIconPost**](Apis/DefaultApi.md#configaddiconpost)                               | **POST** /config/addIcon                | Add icons to configuration                    |
+| [**configAddKeystyleToAppearancePut**](Apis/DefaultApi.md#configaddkeystyletoappearanceput) | **PUT** /config/addKeystyleToAppearance | Add keystyle(s) to appearance                 |
+| [**configChangeGet**](Apis/DefaultApi.md#configchangeget)                                   | **GET** /configChange                   | WebSocket session stream                      |
+| [**configImportPost**](Apis/DefaultApi.md#configimportpost)                                 | **POST** /config/import                 | Import .flux configuration file               |
+| [**configKeymapDataGet**](Apis/DefaultApi.md#configkeymapdataget)                           | **GET** /config/keymapData              | Get keymap data                               |
+| [**configSavePost**](Apis/DefaultApi.md#configsavepost)                                     | **POST** /config/save                   | Save configuration to keyboard                |
+| [**configUpdateActiveProcessPost**](Apis/DefaultApi.md#configupdateactiveprocesspost)       | **POST** /config/updateActiveProcess    | Update foreground active process (Linux only) |
+| [**configUpdateProcessesPost**](Apis/DefaultApi.md#configupdateprocessespost)               | **POST** /config/updateProcesses        | Update list of active processes on Linux      |
+| [**docsGet**](Apis/DefaultApi.md#docsget)                                                   | **GET** /docs                           | Link to documentation                         |
 
 <a name="documentation-for-models"></a>
 
