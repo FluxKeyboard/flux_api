@@ -1,34 +1,32 @@
-# DefaultApi
+# PolymathApi
 
-All URIs are relative to _https://localhost:52323/v1_
+All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_, or depending on how you set up port forwarding, _https://customDomain/v1_ or _https://customDomain:PORT/v1_
 
-| Method                                                                                 | HTTP request                            | Description                                   |
-| -------------------------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------- |
-| [**authenticationCheckGet**](DefaultApi.md#authenticationCheckGet)                     | **GET** /authentication/check           | Validate API key                              |
-| [**authenticationRegisterPost**](DefaultApi.md#authenticationRegisterPost)             | **POST** /authentication/register       | Register application and generate API key     |
-| [**configAddIconPost**](DefaultApi.md#configAddIconPost)                               | **POST** /config/addIcon                | Add icons to configuration                    |
-| [**configAddKeystyleToAppearancePut**](DefaultApi.md#configAddKeystyleToAppearancePut) | **PUT** /config/addKeystyleToAppearance | Add keystyle(s) to appearance                 |
-| [**configChangeGet**](DefaultApi.md#configChangeGet)                                   | **GET** /configChange                   | WebSocket session stream                      |
-| [**configImportPost**](DefaultApi.md#configImportPost)                                 | **POST** /config/import                 | Import .flux configuration file               |
-| [**configKeymapDataGet**](DefaultApi.md#configKeymapDataGet)                           | **GET** /config/keymapData              | Get keymap data                               |
-| [**configSavePost**](DefaultApi.md#configSavePost)                                     | **POST** /config/save                   | Save configuration to keyboard                |
-| [**configUpdateActiveProcessPost**](DefaultApi.md#configUpdateActiveProcessPost)       | **POST** /config/updateActiveProcess    | Update foreground active process (Linux only) |
-| [**configUpdateProcessesPost**](DefaultApi.md#configUpdateProcessesPost)               | **POST** /config/updateProcesses        | Update list of active processes on Linux      |
-| [**docsGet**](DefaultApi.md#docsGet)                                                   | **GET** /docs                           | Link to documentation                         |
+
+
+| HTTP request                                                                              | Description                                                                   |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| [**GET** /authentication/check](PolymathApi.md#authenticationCheckGet)                     | Validate API key                                                              |
+| [**POST** /authentication/register](PolymathApi.md#authenticationRegisterPost)             | Register application and generate API key                                     |
+| [**POST** /config/addIcon](PolymathApi.md#configAddIconPost)                               | Add icons to configuration                                                    |
+| [**PUT** /config/addKeystyleToAppearance](PolymathApi.md#configAddKeystyleToAppearancePut) | Add keystyle(s) to appearance                                                 |
+| [**GET** /configChange](PolymathApi.md#configChangeGet)                                    | WebSocket session stream                                                      |
+| [**POST** /config/import](PolymathApi.md#configImportPost)                                 | Import .flux configuration file                                               |
+| [**GET** /config/keymapData](PolymathApi.md#configKeymapDataGet)                           | Get keymap data                                                               |
+| [**POST** /config/save](PolymathApi.md#configSavePost)                                     | Save configuration to keyboard                                                |
+| [**POST** /config/updateActiveProcess](PolymathApi.md#configUpdateActiveProcessPost)       | Update foreground active process (Linux only)                                 |
+| [**POST** /config/updateProcesses](PolymathApi.md#configUpdateProcessesPost)               | Update list of active processes (Linux only)                                  |
+| [**GET** /docs](PolymathApi.md#docsGet)                                                    | Gets a link to the current documentation, can also be used to ping the server |
 
 <a name="authenticationCheckGet"></a>
 
-# **authenticationCheckGet**
-
-> authenticationCheckGet(User-Agent)
+# **GET /authentication/check**
 
 Validate API key
 
 ### Parameters
 
-| Name           | Type       | Description | Notes |
-| -------------- | ---------- | ----------- | ----- |
-| **User-Agent** | **String** |             |       |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -42,20 +40,17 @@ null (empty response body)
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+- **User-Agent**: Your Application
 
 <a name="authenticationRegisterPost"></a>
 
-# **authenticationRegisterPost**
-
-> MessageResponse authenticationRegisterPost(User-Agent)
+# **POST /authentication/register**
 
 Register application and generate API key
 
 ### Parameters
 
-| Name           | Type       | Description | Notes |
-| -------------- | ---------- | ----------- | ----- |
-| **User-Agent** | **String** |             |       |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -69,16 +64,16 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+- **User-Agent**: Your Application
 
 <a name="configAddIconPost"></a>
 
-# **configAddIconPost**
-
-> IconImportResponse configAddIconPost(IconRequest)
+# **POST /config/addIcon**
 
 Add icons to configuration
 
 ### Parameters
+
 
 | Name            | Type                                        | Description | Notes |
 | --------------- | ------------------------------------------- | ----------- | ----- |
@@ -96,16 +91,16 @@ Add icons to configuration
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+- **User-Agent**: Your Application
 
 <a name="configAddKeystyleToAppearancePut"></a>
 
-# **configAddKeystyleToAppearancePut**
-
-> MessageResponse configAddKeystyleToAppearancePut(KeystyleRequest)
+# **PUT /config/addKeystyleToAppearance**
 
 Add keystyle(s) to appearance
 
 ### Parameters
+
 
 | Name                | Type                                                | Description | Notes |
 | ------------------- | --------------------------------------------------- | ----------- | ----- |
@@ -123,23 +118,30 @@ Add keystyle(s) to appearance
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+- **User-Agent**: Your Application
 
 <a name="configChangeGet"></a>
 
-# **configChangeGet**
-
-> configChangeGet(User-Agent, WebSocketMessage)
+# **GET /configChange**
 
 WebSocket session stream
 
-    WebSocket routes: - changeProfile - currentProfile - changeContext - currentContext
+WebSocket routes: - changeProfile - currentProfile - changeContext - currentContext
+
+changeProfile: Takes in the name of the profile to switch to. Will return 403 if the user denies the request
+
+currentProfile: Returns the current active profile on the keyboard based on the automated settings
+
+changeContext: Updates the current context in the active shortcut collection. Will return 404 if the context doesn't exist, and 403 if the user denies the request
+
+currentContext: Returns the name of the current active shortcut context
 
 ### Parameters
 
-| Name                 | Type                                                  | Description | Notes      |
-| -------------------- | ----------------------------------------------------- | ----------- | ---------- |
-| **User-Agent**       | **String**                                            |             |            |
-| **WebSocketMessage** | [**WebSocketMessage**](../Models/WebSocketMessage.md) |             | [optional] |
+
+| Name                 | Type                                                  | Description                                                   | Notes      |
+| -------------------- | ----------------------------------------------------- | ------------------------------------------------------------- | ---------- |
+| **WebSocketMessage** | [**WebSocketMessage**](../Models/WebSocketMessage.md) | Not needed for initial handshake, only for websocket messages | [optional] |
 
 ### Return type
 
@@ -153,20 +155,19 @@ null (empty response body)
 
 - **Content-Type**: application/json
 - **Accept**: Not defined
+- **User-Agent**: Your Application
 
 <a name="configImportPost"></a>
 
-# **configImportPost**
-
-> ImportResponse configImportPost(User-Agent, ImportFileRequest)
+# **POST /config/import**
 
 Import .flux configuration file
 
 ### Parameters
 
+
 | Name                  | Type                                                    | Description | Notes |
 | --------------------- | ------------------------------------------------------- | ----------- | ----- |
-| **User-Agent**        | **String**                                              |             |       |
 | **ImportFileRequest** | [**ImportFileRequest**](../Models/ImportFileRequest.md) |             |       |
 
 ### Return type
@@ -181,12 +182,11 @@ Import .flux configuration file
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+- **User-Agent**: Your Application
 
 <a name="configKeymapDataGet"></a>
 
-# **configKeymapDataGet**
-
-> KeymapResponse configKeymapDataGet()
+# **GET /config/keymapData**
 
 Get keymap data
 
@@ -206,20 +206,17 @@ This endpoint does not need any parameter.
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+- **User-Agent**: Your Application
 
 <a name="configSavePost"></a>
 
-# **configSavePost**
-
-> MessageResponse configSavePost(User-Agent)
+# **POST /config/save**
 
 Save configuration to keyboard
 
 ### Parameters
 
-| Name           | Type       | Description | Notes |
-| -------------- | ---------- | ----------- | ----- |
-| **User-Agent** | **String** |             |       |
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -233,16 +230,16 @@ Save configuration to keyboard
 
 - **Content-Type**: Not defined
 - **Accept**: application/json
+- **User-Agent**: Your Application
 
 <a name="configUpdateActiveProcessPost"></a>
 
-# **configUpdateActiveProcessPost**
-
-> MessageResponse configUpdateActiveProcessPost(ActiveProcessRequest)
+# **POST /config/updateActiveProcess**
 
 Update foreground active process (Linux only)
 
 ### Parameters
+
 
 | Name                     | Type                                                          | Description | Notes |
 | ------------------------ | ------------------------------------------------------------- | ----------- | ----- |
@@ -260,16 +257,16 @@ Update foreground active process (Linux only)
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+- **User-Agent**: Your Application
 
 <a name="configUpdateProcessesPost"></a>
 
-# **configUpdateProcessesPost**
+# **POST /config/updateProcesses**
 
-> MessageResponse configUpdateProcessesPost(ProcessUpdateRequest)
-
-Update list of active processes on Linux
+Update list of active processes (Linux only)
 
 ### Parameters
+
 
 | Name                     | Type                                                          | Description | Notes |
 | ------------------------ | ------------------------------------------------------------- | ----------- | ----- |
@@ -287,12 +284,11 @@ Update list of active processes on Linux
 
 - **Content-Type**: application/json
 - **Accept**: application/json
+- **User-Agent**: Your Application
 
 <a name="docsGet"></a>
 
-# **docsGet**
-
-> String docsGet()
+# **GET /docs**
 
 Link to documentation
 
