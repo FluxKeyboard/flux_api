@@ -1,10 +1,12 @@
-# Documentation for Polymath Local API
+# Documentation for the Flux Polymath API
 
 <a name="ssl-info"></a>
 
 ## TLS Certificates
 
-The Flux Polymath API uses a self signed TLS certificate. These certificates are generated at runtime and replaced as needed (when they expire) so that each installation has a unique certificate.
+The Flux Polymath API uses a self signed TLS certificate. These certificates are generated at runtime and replaced as needed (when they expire, or when the local IP changes and SAN needs to be reset) so that each installation has a unique certificate. It is possible in the Polymath settings to add a domain that you wish to be attached to the TLS certificate, however all that does is allow requests from that domain. DNS, port forwarding, ect, still needs to be done outside of Polymath.
+
+The certificates are fingerprinted to ensure no manipulation, this is to help prevent someone from accessing a user's machine and attempting a man in the middle attack. The same is also done for the API settings as a whole.
 
 For your plugins you will need to get the certificate to create a security context in your requests. The locations are as follows
 
@@ -24,13 +26,15 @@ For your plugins you will need to get the certificate to create a security conte
 
 ## Documentation for API Endpoints
 
-All URIs are relative to _https://localhost:PORT/v1_
+The API will attempt to assign themselves to port 52323, however in the event that they are unable to the OS will assign a port. The current active port is accessible in the configuration file. The examples show various ways on how to access them.
+
+All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_, or depending on how you set up port forwarding, _https://customDomain/v1_ or _https://customDomain:PORT/v1_
 
 | Method                                                                                      | HTTP request                            | Description                                   |
 | ------------------------------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------- |
 | [**authenticationCheckGet**](Apis/DefaultApi.md#authenticationcheckget)                     | **GET** /authentication/check           | Validate API key                              |
 | [**authenticationRegisterPost**](Apis/DefaultApi.md#authenticationregisterpost)             | **POST** /authentication/register       | Register application and generate API key     |
-| [**configAddIconPost**](Apis/DefaultApi.md#configaddiconpost)                               | **POST** /config/addIcon                | Add icons to configuration                    |
+| [**configAddIconPost**](Apis/DefaultApi.md#configaddiconpost)                               | **POST** /config/addIcon                | Add icon(s) to configuration                    |
 | [**configAddKeystyleToAppearancePut**](Apis/DefaultApi.md#configaddkeystyletoappearanceput) | **PUT** /config/addKeystyleToAppearance | Add keystyle(s) to appearance                 |
 | [**configChangeGet**](Apis/DefaultApi.md#configchangeget)                                   | **GET** /configChange                   | WebSocket session stream                      |
 | [**configImportPost**](Apis/DefaultApi.md#configimportpost)                                 | **POST** /config/import                 | Import .flux configuration file               |
