@@ -32,17 +32,17 @@ All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_,
 
 | Method                                                                                      | HTTP request                            | Description                                   |
 | ------------------------------------------------------------------------------------------- | --------------------------------------- | --------------------------------------------- |
-| [**authenticationCheckGet**](Apis/DefaultApi.md#authenticationcheckget)                     | **GET** /authentication/check           | Validate API key                              |
-| [**authenticationRegisterPost**](Apis/DefaultApi.md#authenticationregisterpost)             | **POST** /authentication/register       | Register application and generate API key     |
-| [**configAddIconPost**](Apis/DefaultApi.md#configaddiconpost)                               | **POST** /config/addIcon                | Add icon(s) to configuration                    |
-| [**configAddKeystyleToAppearancePut**](Apis/DefaultApi.md#configaddkeystyletoappearanceput) | **PUT** /config/addKeystyleToAppearance | Add keystyle(s) to appearance                 |
-| [**configChangeGet**](Apis/DefaultApi.md#configchangeget)                                   | **GET** /configChange                   | WebSocket session stream                      |
-| [**configImportPost**](Apis/DefaultApi.md#configimportpost)                                 | **POST** /config/import                 | Import .flux configuration file               |
-| [**configKeymapDataGet**](Apis/DefaultApi.md#configkeymapdataget)                           | **GET** /config/keymapData              | Get keymap data                               |
-| [**configSavePost**](Apis/DefaultApi.md#configsavepost)                                     | **POST** /config/save                   | Save configuration to keyboard                |
-| [**configUpdateActiveProcessPost**](Apis/DefaultApi.md#configupdateactiveprocesspost)       | **POST** /config/updateActiveProcess    | Update foreground active process (Linux only) |
-| [**configUpdateProcessesPost**](Apis/DefaultApi.md#configupdateprocessespost)               | **POST** /config/updateProcesses        | Update list of active processes on Linux      |
-| [**docsGet**](Apis/DefaultApi.md#docsget)                                                   | **GET** /docs                           | Link to documentation                         |
+| [**authenticationCheckGet**](Apis/PolymathApi.md#authenticationcheckget)                     | **GET** /authentication/check           | Validate API key                              |
+| [**authenticationRegisterPost**](Apis/PolymathApi.md#authenticationregisterpost)             | **POST** /authentication/register       | Register application and generate API key     |
+| [**configAddIconPost**](Apis/PolymathApi.md#configaddiconpost)                               | **POST** /config/addIcon                | Add icon(s) to configuration                    |
+| [**configAddKeystyleToAppearancePut**](Apis/PolymathApi.md#configaddkeystyletoappearanceput) | **PUT** /config/addKeystyleToAppearance | Add keystyle(s) to appearance                 |
+| [**configChangeGet**](Apis/PolymathApi.md#configchangeget)                                   | **GET** /configChange                   | WebSocket session stream                      |
+| [**configImportPost**](Apis/PolymathApi.md#configimportpost)                                 | **POST** /config/import                 | Import .flux configuration file               |
+| [**configKeymapDataGet**](Apis/PolymathApi.md#configkeymapdataget)                           | **GET** /config/keymapData              | Get keymap data                               |
+| [**configSavePost**](Apis/PolymathApi.md#configsavepost)                                     | **POST** /config/save                   | Save configuration to keyboard                |
+| [**configUpdateActiveProcessPost**](Apis/PolymathApi.md#configupdateactiveprocesspost)       | **POST** /config/updateActiveProcess    | Update foreground active process (Linux only) |
+| [**configUpdateProcessesPost**](Apis/PolymathApi.md#configupdateprocessespost)               | **POST** /config/updateProcesses        | Update list of active processes on Linux      |
+| [**docsGet**](Apis/PolymathApi.md#docsget)                                                   | **GET** /docs                           | Link to documentation                         |
 
 <a name="documentation-for-models"></a>
 
