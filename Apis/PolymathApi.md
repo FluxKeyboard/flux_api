@@ -122,7 +122,7 @@ Add keystyle(s) to appearance
 
 <a name="configChangeGet"></a>
 
-# **GET /configChange**
+# **WSS /configChange**
 
 WebSocket session stream
 
