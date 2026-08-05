@@ -36,7 +36,7 @@ All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_,
 | [**POST** /authentication/register](Apis/PolymathApi.md#authenticationregisterpost)             | Register application and generate API key     |
 | [**POST** /config/addIcon](Apis/PolymathApi.md#configaddiconpost)                               | Add icon(s) to configuration                  |
 | [**PUT** /config/addKeystyleToAppearance](Apis/PolymathApi.md#configaddkeystyletoappearanceput) | Add keystyle(s) to appearance                 |
-| [**GET** /configChange ](Apis/PolymathApi.md#configchangeget)                                   | WebSocket session stream                      |
+| [**WSS** /configChange ](Apis/PolymathApi.md#configchangeget)                                   | WebSocket session stream                      |
 | [**POST** /config/import ](Apis/PolymathApi.md#configimportpost)                                | Import .flux configuration file               |
 | [**GET** /config/keymapData](Apis/PolymathApi.md#configkeymapdataget)                           | Get keymap data                               |
 | [**POST** /config/save ](Apis/PolymathApi.md#configsavepost)                                    | Save configuration to keyboard                |
