@@ -1,7 +1,6 @@
 import Gio from "gi://Gio";
 import GLib from "gi://GLib";
 
-// The Strings here do not matter of the content, as we send DBus informtion through signals. However they are centralized between the two implementations for simplicities sake
 const BUS_NAME = "org.waylandProcessMonitor.KWin";
 const OBJECT_PATH = "/waylandProcessMonitor/window";
 const IFACE_NAME = "org.waylandProcessMonitor.KWin";
@@ -23,6 +22,7 @@ export class WaylandDbusManager {
   constructor() {
     this._nodeInfo = Gio.DBusNodeInfo.new_for_xml(XML);
     this._iface = this._nodeInfo.interfaces[0];
+    this._conn = null;
 
     Gio.bus_own_name(
       Gio.BusType.SESSION,
@@ -47,6 +47,7 @@ export class WaylandDbusManager {
   }
 
   _emit(name, variant) {
+    if(this._conn == null) return;
     this._conn.emit_signal(null, OBJECT_PATH, IFACE_NAME, name, variant);
   }
 

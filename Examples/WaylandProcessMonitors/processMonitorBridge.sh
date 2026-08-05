@@ -107,7 +107,7 @@ auth_check() {
 
 # This is how we register with Polymath to get a new API key. If the user denies the request or we are told our application is banned, we stop our connection loop
 register_key() {
-	if [ "$connected" = "$true" ]; then
+	if [ "$connected" = true ]; then
 		return 1
 	fi
 	local response body code key
@@ -143,6 +143,9 @@ register_key() {
 # Here is where we initiate the auth check, if it fails we automatically request a new key
 # We check prior to every message in case the user has revoked our API key
 ensure_auth() {
+	if [[ "$currently_connecting" = true ]]; then
+        return 1
+    fi
 	api_key=$(get_api_key)
 	if [ -z "$api_key" ]; then
 		return 1

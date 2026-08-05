@@ -11,7 +11,7 @@ class SslService:
         if sys.platform.startswith("win"):
             base = Path(os.environ["APPDATA"]) / "com.fluxkeyboard" / "polymath" / "tls"
         elif sys.platform == "darwin":
-            base = Path.home() / "Library" / "Application Support" / "com.fluxkeyboard" / "polymath" / "tls"
+            base = Path.home() / "Library" / "Application Support" / "com.flux.polymath" / "tls"
         else:
             base = Path(os.environ.get("XDG_DATA_HOME", Path.home() / ".local" / "share" / "com.fluxkeyboard.polymath" / "tls"))
 

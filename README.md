@@ -16,7 +16,7 @@ For your plugins you will need to get the certificate to create a security conte
 
 ### macOS
 
-`~/Library/Application Support/com.fluxkeyboard/tls/cert.pem`
+`~/Library/Application Support/com.flux.polymath/tls/cert.pem`
 
 ### Linux
 
@@ -30,9 +30,9 @@ The API will attempt to assign themselves to port 52323, however in the event th
 
 All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_, or depending on how you set up port forwarding, _https://customDomain/v1_ or _https://customDomain:PORT/v1_
 
-|  HTTP request                                                                                   | Description                                   |
-| ------------------------------------------------------------------------------------------------|---------------------------------------------- |
-| [**GET** /authentication/check ](Apis/PolymathApi.md#authenticationcheckget)                   | Validate API key                              |
+| HTTP request                                                                                    | Description                                   |
+| ----------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| [**GET** /authentication/check ](Apis/PolymathApi.md#authenticationcheckget)                    | Validate API key                              |
 | [**POST** /authentication/register](Apis/PolymathApi.md#authenticationregisterpost)             | Register application and generate API key     |
 | [**POST** /config/addIcon](Apis/PolymathApi.md#configaddiconpost)                               | Add icon(s) to configuration                  |
 | [**PUT** /config/addKeystyleToAppearance](Apis/PolymathApi.md#configaddkeystyletoappearanceput) | Add keystyle(s) to appearance                 |

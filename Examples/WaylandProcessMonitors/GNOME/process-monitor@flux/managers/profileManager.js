@@ -1,4 +1,5 @@
 import { WaylandDbusManager } from "./waylandDbusManager.js";
+import GLib from "gi://GLib";
 
 export class ProfileManager {
   constructor() {
@@ -7,18 +8,32 @@ export class ProfileManager {
     this._signal = null;
     this._windows = [];
     this.dbus = new WaylandDbusManager();
-    this.start();
+    this.intervalId = -1;
   }
 
   start() {
     this._signal = global.display.connect("notify::focus-window", this._update);
 
+    this.intervalId = GLib.timeout_add_seconds(
+        GLib.PRIORITY_DEFAULT,
+        5, 
+        () => {
+            this._update();
+
+            return GLib.SOURCE_CONTINUE; 
+        }
+    );
     this._update();
   }
 
   stop() {
     if (this._signal) {
       global.display.disconnect(this._signal);
+    }
+
+    if(this.intervalId !== -1) {
+      GLib.source_remove(this.intervalId);
+      this.intervalId = -1;
     }
   }
 
@@ -35,11 +50,10 @@ export class ProfileManager {
 
     const windows = workspace.list_windows();
 
-    //On window change we see if there is a substantial change to the active processes list
-    //If there is we send this information over to Polymath
-    if (this._updateWindows(windows)) {
-      this.dbus.emitSnapshot(this._windows);
-    }
+    this._updateWindows(windows)
+
+    this.dbus.emitSnapshot(this._windows);
+
   }
 
   _updateWindows(windows) {
