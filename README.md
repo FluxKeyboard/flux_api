@@ -38,6 +38,8 @@ All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_,
 | [**PUT** /config/addKeystyleToAppearance](Apis/PolymathApi.md#configaddkeystyletoappearanceput) | Add keystyle(s) to appearance                 |
 | [**WSS** /configChange ](Apis/PolymathApi.md#configchangeget)                                   | WebSocket session stream                      |
 | [**POST** /config/import ](Apis/PolymathApi.md#configimportpost)                                | Import .flux configuration file               |
+| [**POST** /config/createGenericModule ](Apis/PolymathApi.md#configGenericCreatePost)            | Creates a generic module of the given type    |
+| [**PUT** /config/updateGenericModule ](Apis/PolymathApi.md#configGenericUpdatePut)              | Updates the current data of a generic module  |
 | [**GET** /config/keymapData](Apis/PolymathApi.md#configkeymapdataget)                           | Get keymap data                               |
 | [**POST** /config/save ](Apis/PolymathApi.md#configsavepost)                                    | Save configuration to keyboard                |
 | [**POST** /config/updateActiveProcess ](Apis/PolymathApi.md#configupdateactiveprocesspost)      | Update foreground active process (Linux only) |
@@ -50,6 +52,8 @@ All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_,
 
 - [ActiveProcessRequest](./Models/ActiveProcessRequest.md)
 - [ErrorResponse](./Models/ErrorResponse.md)
+- [GenericModuleCreationRequest](./Models/GenericModuleCreationRequest.md)
+- [GenericModuleUpdateRequest](./Models/GenericModuleUpdateRequest.md)
 - [IconImportResponse](./Models/IconImportResponse.md)
 - [IconRequest](./Models/IconRequest.md)
 - [IconRequest_icons_inner](./Models/IconRequest_icons_inner.md)

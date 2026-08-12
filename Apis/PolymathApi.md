@@ -2,16 +2,16 @@
 
 All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_, or depending on how you set up port forwarding, _https://customDomain/v1_ or _https://customDomain:PORT/v1_
 
-
-
-| HTTP request                                                                              | Description                                                                   |
-| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| HTTP request                                                                               | Description                                                                   |
+| ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | [**GET** /authentication/check](PolymathApi.md#authenticationCheckGet)                     | Validate API key                                                              |
 | [**POST** /authentication/register](PolymathApi.md#authenticationRegisterPost)             | Register application and generate API key                                     |
 | [**POST** /config/addIcon](PolymathApi.md#configAddIconPost)                               | Add icons to configuration                                                    |
 | [**PUT** /config/addKeystyleToAppearance](PolymathApi.md#configAddKeystyleToAppearancePut) | Add keystyle(s) to appearance                                                 |
 | [**WSS** /configChange](PolymathApi.md#configChangeGet)                                    | WebSocket session stream                                                      |
 | [**POST** /config/import](PolymathApi.md#configImportPost)                                 | Import .flux configuration file                                               |
+| [**POST** /config/createGenericModule ](PolymathApi.md#configGenericCreatePost)            | Creates a generic module of the given type                                    |
+| [**PUT** /config/updateGenericModule ](PolymathApi.md#configGenericUpdatePut)              | Updates the current data of a generic module                                  |
 | [**GET** /config/keymapData](PolymathApi.md#configKeymapDataGet)                           | Get keymap data                                                               |
 | [**POST** /config/save](PolymathApi.md#configSavePost)                                     | Save configuration to keyboard                                                |
 | [**POST** /config/updateActiveProcess](PolymathApi.md#configUpdateActiveProcessPost)       | Update foreground active process (Linux only)                                 |
@@ -74,7 +74,6 @@ Add icons to configuration
 
 ### Parameters
 
-
 | Name            | Type                                        | Description | Notes |
 | --------------- | ------------------------------------------- | ----------- | ----- |
 | **IconRequest** | [**IconRequest**](../Models/IconRequest.md) |             |       |
@@ -100,7 +99,6 @@ Add icons to configuration
 Add keystyle(s) to appearance
 
 ### Parameters
-
 
 | Name                | Type                                                | Description | Notes |
 | ------------------- | --------------------------------------------------- | ----------- | ----- |
@@ -138,7 +136,6 @@ currentContext: Returns the name of the current active shortcut context
 
 ### Parameters
 
-
 | Name                 | Type                                                  | Description                                                   | Notes      |
 | -------------------- | ----------------------------------------------------- | ------------------------------------------------------------- | ---------- |
 | **WebSocketMessage** | [**WebSocketMessage**](../Models/WebSocketMessage.md) | Not needed for initial handshake, only for websocket messages | [optional] |
@@ -165,7 +162,6 @@ Import .flux configuration file
 
 ### Parameters
 
-
 | Name                  | Type                                                    | Description | Notes |
 | --------------------- | ------------------------------------------------------- | ----------- | ----- |
 | **ImportFileRequest** | [**ImportFileRequest**](../Models/ImportFileRequest.md) |             |       |
@@ -173,6 +169,58 @@ Import .flux configuration file
 ### Return type
 
 [**ImportResponse**](../Models/ImportResponse.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+- **User-Agent**: Your Application
+
+<a name="configGenericCreatePost"></a>
+
+# **POST /config/createGenericModule**
+
+Creates a generic module of the given type
+
+### Parameters
+
+| Name                             | Type                                                                          | Description | Notes |
+| -------------------------------- | ----------------------------------------------------------------------------- | ----------- | ----- |
+| **GenericModuleCreationRequest** | [**GenericModuleCreationRequest**](../Models/GenericModuleCreationRequest.md) |             |       |
+
+### Return type
+
+[**GenericModuleCreationResponse**](../Models/GenericModuleCreationResponse.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+- **User-Agent**: Your Application
+
+<a name="configGenericUpdatePut"></a>
+
+# **PUT /config/updateGenericModule**
+
+Updates the current data of a generic module
+
+### Parameters
+
+| Name                           | Type                                                                      | Description | Notes |
+| ------------------------------ | ------------------------------------------------------------------------- | ----------- | ----- |
+| **GenericModuleUpdateRequest** | [**GenericModuleUpdateRequest**](../Models/GenericModuleUpdateRequest.md) |             |       |
+
+### Return type
+
+[**GenericModuleUpdateResponse**](../Models/GenericModuleUpdateResponse.md)
 
 ### Authorization
 
@@ -240,7 +288,6 @@ Update foreground active process (Linux only)
 
 ### Parameters
 
-
 | Name                     | Type                                                          | Description | Notes |
 | ------------------------ | ------------------------------------------------------------- | ----------- | ----- |
 | **ActiveProcessRequest** | [**ActiveProcessRequest**](../Models/ActiveProcessRequest.md) |             |       |
@@ -266,7 +313,6 @@ Update foreground active process (Linux only)
 Update list of active processes (Linux only)
 
 ### Parameters
-
 
 | Name                     | Type                                                          | Description | Notes |
 | ------------------------ | ------------------------------------------------------------- | ----------- | ----- |
