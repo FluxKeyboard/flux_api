@@ -2,7 +2,7 @@
 
 ## Color Options
 
-| Number     |
+| Color      |
 | ---------- |
 | **Legend** |
 | **Red**    |
