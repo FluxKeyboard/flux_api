@@ -2,8 +2,6 @@
 
 ## Properties
 
-### Note: Indev and experimental, but still accessible. Reliably can support 1 graph at a time
-
 | Name                  | Type                  | Description                                                                                     | Notes |
 | --------------------- | --------------------- | ----------------------------------------------------------------------------------------------- | ----- |
 | **id**                | **String**            | The ID for the module                                                                           |       |
