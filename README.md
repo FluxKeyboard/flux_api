@@ -62,7 +62,7 @@ All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_,
 - [KeyAction](./Models/KeyAction.md)
 - [KeyModel](./Models/KeyModel.md)
 - [KeyStyle](./Models/KeyStyle.md)
-- [KeymapLayer](./Models/KeymapLayer.md)
+- [Keymap](./Models/Keymap.md)
 - [KeymapResponse](./Models/KeymapResponse.md)
 - [KeystyleRequest](./Models/KeystyleRequest.md)
 - [MessageResponse](./Models/MessageResponse.md)
