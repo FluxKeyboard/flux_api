@@ -15,6 +15,7 @@ All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_,
 | [**GET** /config/keymapData](PolymathApi.md#configKeymapDataGet)                           | Get keymap data                                                               |
 | [**POST** /config/save](PolymathApi.md#configSavePost)                                     | Save configuration to keyboard                                                |
 | [**POST** /config/updateActiveProcess](PolymathApi.md#configUpdateActiveProcessPost)       | Update foreground active process (Linux only)                                 |
+| [**POST** /config/updateInputLanguage](PolymathApi.md#configUpdateInputLanguagePost)       | Update the active keyboard input language (Linux only)                        |
 | [**POST** /config/updateProcesses](PolymathApi.md#configUpdateProcessesPost)               | Update list of active processes (Linux only)                                  |
 | [**GET** /docs](PolymathApi.md#docsGet)                                                    | Gets a link to the current documentation, can also be used to ping the server |
 
@@ -286,6 +287,8 @@ This endpoint does not need any parameter.
 
 Update foreground active process (Linux only)
 
+Polymath serves this value only while your application keeps calling the API. See [Detection overrides](../README.md#detection-overrides).
+
 ### Parameters
 
 | Name                     | Type                                                          | Description | Notes |
@@ -306,11 +309,41 @@ Update foreground active process (Linux only)
 - **Accept**: application/json
 - **User-Agent**: Your Application
 
+<a name="configUpdateInputLanguagePost"></a>
+
+# **POST /config/updateInputLanguage**
+
+Update the active keyboard input language (Linux only)
+
+Polymath serves this value only while your application keeps calling the API. See [Detection overrides](../README.md#detection-overrides).
+
+### Parameters
+
+| Name                      | Type                                                            | Description | Notes |
+| ------------------------- | --------------------------------------------------------------- | ----------- | ----- |
+| **InputLanguageRequest**  | [**InputLanguageRequest**](../Models/InputLanguageRequest.md)   |             |       |
+
+### Return type
+
+[**MessageResponse**](../Models/MessageResponse.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+- **User-Agent**: Your Application
+
 <a name="configUpdateProcessesPost"></a>
 
 # **POST /config/updateProcesses**
 
 Update list of active processes (Linux only)
+
+Polymath serves this value only while your application keeps calling the API. See [Detection overrides](../README.md#detection-overrides).
 
 ### Parameters
 
