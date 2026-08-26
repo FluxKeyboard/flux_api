@@ -1,8 +1,8 @@
-# GenericModuleUpdateRequest
+# GenericTileUpdateRequest
 
 ## Properties
 
-### The generic module updates are based on the type for the given ID, these are the following types, and only one is required per reqeust
+### The generic tile updates are based on the type for the given ID, these are the following types, and only one is required per reqeust
 
 | Name                          | Type                                                          | Description                            | Notes |
 | ----------------------------- | ------------------------------------------------------------- | -------------------------------------- | ----- |
