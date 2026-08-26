@@ -10,8 +10,8 @@ All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_,
 | [**PUT** /config/addKeystyleToAppearance](PolymathApi.md#configAddKeystyleToAppearancePut) | Add keystyle(s) to appearance                                                 |
 | [**WSS** /configChange](PolymathApi.md#configChangeGet)                                    | WebSocket session stream                                                      |
 | [**POST** /config/import](PolymathApi.md#configImportPost)                                 | Import .flux configuration file                                               |
-| [**POST** /config/createGenericModule ](PolymathApi.md#configGenericCreatePost)            | Creates a generic module of the given type                                    |
-| [**PUT** /config/updateGenericModule ](PolymathApi.md#configGenericUpdatePut)              | Updates the current data of a generic module                                  |
+| [**POST** /config/addGenericTile ](PolymathApi.md#configGenericaddPost)            | Creates a generic tile of the given type                                    |
+| [**PUT** /config/updateGenericTile ](PolymathApi.md#configGenericUpdatePut)              | Updates the current data of a generic tile                                  |
 | [**GET** /config/keymapData](PolymathApi.md#configKeymapDataGet)                           | Get keymap data                                                               |
 | [**POST** /config/save](PolymathApi.md#configSavePost)                                     | Save configuration to keyboard                                                |
 | [**POST** /config/updateActiveProcess](PolymathApi.md#configUpdateActiveProcessPost)       | Update foreground active process (Linux only)                                 |
@@ -183,19 +183,19 @@ Import .flux configuration file
 
 <a name="configGenericCreatePost"></a>
 
-# **POST /config/createGenericModule**
+# **POST /config/addGenericTile**
 
-Creates a generic module of the given type
+Creates a generic tile of the given type
 
 ### Parameters
 
 | Name                             | Type                                                                          | Description | Notes |
 | -------------------------------- | ----------------------------------------------------------------------------- | ----------- | ----- |
-| **GenericModuleCreationRequest** | [**GenericModuleCreationRequest**](../Models/GenericModuleCreationRequest.md) |             |       |
+| **GenericTileCreationRequest** | [**GenericTileCreationRequest**](../Models/GenericTileCreationRequest.md) |             |       |
 
 ### Return type
 
-[**GenericModuleCreationResponse**](../Models/GenericModuleCreationResponse.md)
+[**GenericTileCreationResponse**](../Models/GenericTileCreationResponse.md)
 
 ### Authorization
 
@@ -209,19 +209,19 @@ Creates a generic module of the given type
 
 <a name="configGenericUpdatePut"></a>
 
-# **PUT /config/updateGenericModule**
+# **PUT /config/updateGenericTile**
 
-Updates the current data of a generic module
+Updates the current data of a generic tile
 
 ### Parameters
 
 | Name                           | Type                                                                      | Description | Notes |
 | ------------------------------ | ------------------------------------------------------------------------- | ----------- | ----- |
-| **GenericModuleUpdateRequest** | [**GenericModuleUpdateRequest**](../Models/GenericModuleUpdateRequest.md) |             |       |
+| **GenericTileUpdateRequest** | [**GenericTileUpdateRequest**](../Models/GenericTileUpdateRequest.md) |             |       |
 
 ### Return type
 
-[**GenericModuleUpdateResponse**](../Models/GenericModuleUpdateResponse.md)
+[**GenericTileUpdateResponse**](../Models/GenericTileUpdateResponse.md)
 
 ### Authorization
 
