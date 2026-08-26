@@ -4,7 +4,7 @@
 
 | Name                  | Type                  | Description                                                                                     | Notes |
 | --------------------- | --------------------- | ----------------------------------------------------------------------------------------------- | ----- |
-| **id**                | **String**            | The ID for the module                                                                           |       |
+| **id**                | **String**            | The ID for the tile                                                                           |       |
 | **subTitle**          | **String**            | The new subtitle for the graph                                                                  |       |
 | **unit**              | **String**            | The new unit for the graph                                                                      |       |
 | **secondarySubtitle** | **String**            | The secondary subtitle for the graph                                                            |       |
