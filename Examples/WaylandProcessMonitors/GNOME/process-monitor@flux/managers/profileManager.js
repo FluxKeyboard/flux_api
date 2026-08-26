@@ -35,6 +35,8 @@ export class ProfileManager {
       GLib.source_remove(this.intervalId);
       this.intervalId = -1;
     }
+
+    this.dbus.destroy();
   }
 
   _update() {

@@ -43,8 +43,23 @@ All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_,
 | [**GET** /config/keymapData](Apis/PolymathApi.md#configkeymapdataget)                           | Get keymap data                               |
 | [**POST** /config/save ](Apis/PolymathApi.md#configsavepost)                                    | Save configuration to keyboard                |
 | [**POST** /config/updateActiveProcess ](Apis/PolymathApi.md#configupdateactiveprocesspost)      | Update foreground active process (Linux only) |
+| [**POST** /config/updateInputLanguage ](Apis/PolymathApi.md#configupdateinputlanguagepost)      | Update active input language (Linux only)     |
 | [**POST** /config/updateProcesses](Apis/PolymathApi.md#configupdateprocessespost)               | Update list of active processes on Linux      |
 | [**GET** /docs ](Apis/PolymathApi.md#docsget)                                                   | Link to documentation                         |
+
+<a name="detection-overrides"></a>
+
+## Detection overrides
+
+On Linux, Polymath detects the foreground application and the active keyboard input language for itself. The endpoints below let your application supply those values instead, and what you send takes precedence over Polymath's own detection:
+
+- `POST /config/updateActiveProcess`
+- `POST /config/updateProcesses`
+- `POST /config/updateInputLanguage`
+
+**A value you supply is served only while your application keeps calling the API.** Polymath treats every authenticated request as a sign that you are still running. If it hears nothing from your application for 20 seconds, it discards the values you supplied and returns to detecting for itself; your next request takes over again, and the values you sent before the gap are not restored, so send them again.
+
+Any authenticated request counts, so an application that posts more often than every 20 seconds needs to do nothing extra. One that reports only when something changes should call `GET /authentication/check` on a timer to stay live; the bundled integrations do this every 5 seconds.
 
 <a name="documentation-for-models"></a>
 
@@ -58,6 +73,7 @@ All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_,
 - [IconRequest](./Models/IconRequest.md)
 - [IconRequest_icons_inner](./Models/IconRequest_icons_inner.md)
 - [ImportFileRequest](./Models/ImportFileRequest.md)
+- [InputLanguageRequest](./Models/InputLanguageRequest.md)
 - [ImportResponse](./Models/ImportResponse.md)
 - [KeyAction](./Models/KeyAction.md)
 - [KeyModel](./Models/KeyModel.md)
