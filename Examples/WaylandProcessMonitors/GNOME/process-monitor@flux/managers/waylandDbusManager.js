@@ -23,15 +23,16 @@ export class WaylandDbusManager {
     this._nodeInfo = Gio.DBusNodeInfo.new_for_xml(XML);
     this._iface = this._nodeInfo.interfaces[0];
     this._conn = null;
+    this._registrationId = 0;
 
-    Gio.bus_own_name(
+    this._ownerId = Gio.bus_own_name(
       Gio.BusType.SESSION,
       BUS_NAME,
       Gio.BusNameOwnerFlags.NONE,
       (conn) => {
         this._conn = conn;
 
-        conn.register_object(
+        this._registrationId = conn.register_object(
           OBJECT_PATH,
           this._iface,
           this._onMethodCall.bind(this),
@@ -41,9 +42,26 @@ export class WaylandDbusManager {
 
         log("[DBus] Object exported");
       },
-      () => log("[DBus] Lost name"),
       () => log("[DBus] Name acquired"),
+      () => log("[DBus] Lost name"),
     );
+  }
+
+  // Without this a later enable() cannot re-export the object (GDBus refuses a
+  // second export on the same path and interface), so after a screen lock the
+  // object stays bound to the previous, discarded instance.
+  destroy() {
+    if (this._conn && this._registrationId) {
+      this._conn.unregister_object(this._registrationId);
+    }
+
+    if (this._ownerId) {
+      Gio.bus_unown_name(this._ownerId);
+    }
+
+    this._registrationId = 0;
+    this._ownerId = 0;
+    this._conn = null;
   }
 
   _emit(name, variant) {
