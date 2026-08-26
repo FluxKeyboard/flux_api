@@ -1,0 +1,14 @@
+{
+  "uuid": "input-language-monitor@flux",
+  "name": "Flux Input Language Monitor",
+  "description": "Reports the active keyboard input language to Polymath, so the keyboard legends follow layout changes",
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50"
+  ],
+  "version": 1
+}
