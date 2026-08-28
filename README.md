@@ -10,7 +10,7 @@ The certificates are fingerprinted to ensure no manipulation, this is to help pr
 
 For your plugins you will need to get the certificate to create a security context in your requests. The locations are stored in the keys.json file under the key "publicKeyLocation".
 
-Both examples show how to deterministically. generate the path to the config folder
+Both examples show how to deterministically generate the path to the config folder
 
 
 <a name="documentation-for-api-endpoints"></a>
