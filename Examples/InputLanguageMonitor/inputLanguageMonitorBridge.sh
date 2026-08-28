@@ -44,7 +44,7 @@ get_api_config() {
 		return 1
 	fi
 
-	local content apiActive openPort
+	local content apiActive openPort tls_dir
 
 	content=$(<"$CONFIG_FILE")
 
@@ -61,23 +61,30 @@ get_api_config() {
 	else
 		openPort=0
 	fi
+	
+	if [[ "$content" =~ \"publicKeyLocation\":\"([^\"]+)\" ]]; then
+    	tls_dir="${BASH_REMATCH[1]}"
+	else
+		tls_dir=""
+	fi
 
-	echo "$apiActive|$openPort"
+	echo "$apiActive|$openPort|$tls_dir"
 }
 
-#We load the needed config information into memory
 load_config() {
-	local cfg api_active open_port
+	local cfg api_active open_port tls_dir
+
 
 	cfg=$(get_api_config) || return 1
 
-	IFS="|" read -r api_active open_port <<<"$cfg"
+	IFS="|" read -r api_active open_port tls_dir <<<"$cfg"
 
 	if [[ "$api_active" != "true" ]]; then
 		return 1
 	fi
 
 	API_URL="https://localhost:$open_port/v1"
+	TLS_DIR="$tls_dir"
 	return 0
 }
 

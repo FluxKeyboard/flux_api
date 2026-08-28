@@ -8,19 +8,10 @@ The Flux Polymath API uses a self signed TLS certificate. These certificates are
 
 The certificates are fingerprinted to ensure no manipulation, this is to help prevent someone from accessing a user's machine and attempting a man in the middle attack. The same is also done for the API settings as a whole.
 
-For your plugins you will need to get the certificate to create a security context in your requests. The locations are as follows
+For your plugins you will need to get the certificate to create a security context in your requests. The locations are stored in the keys.json file under the key "publicKeyLocation".
 
-### Windows
+Both examples show how to deterministically generate the path to the config folder
 
-`%APPDATA%\com.fluxkeyboard\polymath\tls\cert.pem`
-
-### macOS
-
-`~/Library/Application Support/com.flux.polymath/tls/cert.pem`
-
-### Linux
-
-`~/.local/share/com.fluxkeyboard.polymath/tls/cert.pem`
 
 <a name="documentation-for-api-endpoints"></a>
 
