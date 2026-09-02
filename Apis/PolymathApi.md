@@ -10,7 +10,7 @@ All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_,
 | [**PUT** /config/addKeystyleToAppearance](PolymathApi.md#configAddKeystyleToAppearancePut) | Add keystyle(s) to appearance                                                 |
 | [**WSS** /configChange](PolymathApi.md#configChangeGet)                                    | WebSocket session stream                                                      |
 | [**POST** /config/import](PolymathApi.md#configImportPost)                                 | Import .flux configuration file                                               |
-| [**POST** /config/addGenericTile ](PolymathApi.md#configGenericaddPost)            | Creates a generic tile of the given type                                    |
+| [**POST** /config/addGenericTile ](PolymathApi.md#configGenericCreatePost)            | Creates a generic tile of the given type                                    |
 | [**PUT** /config/updateGenericTile ](PolymathApi.md#configGenericUpdatePut)              | Updates the current data of a generic tile                                  |
 | [**GET** /config/keymapData](PolymathApi.md#configKeymapDataGet)                           | Get keymap data                                                               |
 | [**POST** /config/save](PolymathApi.md#configSavePost)                                     | Save configuration to keyboard                                                |

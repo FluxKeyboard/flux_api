@@ -23,20 +23,20 @@ All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_,
 
 | HTTP request                                                                                    | Description                                   |
 | ----------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| [**GET** /authentication/check ](Apis/PolymathApi.md#authenticationcheckget)                    | Validate API key                              |
-| [**POST** /authentication/register](Apis/PolymathApi.md#authenticationregisterpost)             | Register application and generate API key     |
-| [**POST** /config/addIcon](Apis/PolymathApi.md#configaddiconpost)                               | Add icon(s) to configuration                  |
-| [**PUT** /config/addKeystyleToAppearance](Apis/PolymathApi.md#configaddkeystyletoappearanceput) | Add keystyle(s) to appearance                 |
-| [**WSS** /configChange ](Apis/PolymathApi.md#configchangeget)                                   | WebSocket session stream                      |
-| [**POST** /config/import ](Apis/PolymathApi.md#configimportpost)                                | Import .flux configuration file               |
-| [**POST** /config/addGenericTile ](Apis/PolymathApi.md#configGenericAddPost)            | Creates a generic module of the given type    |
-| [**PUT** /config/updateGenericTile ](Apis/PolymathApi.md#configGenericUpdatePut)              | Updates the current data of a generic module  |
-| [**GET** /config/keymapData](Apis/PolymathApi.md#configkeymapdataget)                           | Get keymap data                               |
-| [**POST** /config/save ](Apis/PolymathApi.md#configsavepost)                                    | Save configuration to keyboard                |
-| [**POST** /config/updateActiveProcess ](Apis/PolymathApi.md#configupdateactiveprocesspost)      | Update foreground active process (Linux only) |
-| [**POST** /config/updateInputLanguage ](Apis/PolymathApi.md#configupdateinputlanguagepost)      | Update active input language (Linux only)     |
-| [**POST** /config/updateProcesses](Apis/PolymathApi.md#configupdateprocessespost)               | Update list of active processes on Linux      |
-| [**GET** /docs ](Apis/PolymathApi.md#docsget)                                                   | Link to documentation                         |
+| [**GET** /authentication/check ](Apis/PolymathApi.md#authenticationCheckGet)                    | Validate API key                              |
+| [**POST** /authentication/register](Apis/PolymathApi.md#authenticationRegisterPost)             | Register application and generate API key     |
+| [**POST** /config/addIcon](Apis/PolymathApi.md#configAddIconPost)                               | Add icon(s) to configuration                  |
+| [**PUT** /config/addKeystyleToAppearance](Apis/PolymathApi.md#configAddKeystyleToAppearancePut) | Add keystyle(s) to appearance                 |
+| [**WSS** /configChange ](Apis/PolymathApi.md#configChangeGet)                                   | WebSocket session stream                      |
+| [**POST** /config/import ](Apis/PolymathApi.md#configImportPost)                                | Import .flux configuration file               |
+| [**POST** /config/addGenericTile ](Apis/PolymathApi.md#configGenericCreatePost)            | Creates a generic tile of the given type      |
+| [**PUT** /config/updateGenericTile ](Apis/PolymathApi.md#configGenericUpdatePut)              | Updates the current data of a generic tile    |
+| [**GET** /config/keymapData](Apis/PolymathApi.md#configKeymapDataGet)                           | Get keymap data                               |
+| [**POST** /config/save ](Apis/PolymathApi.md#configSavePost)                                    | Save configuration to keyboard                |
+| [**POST** /config/updateActiveProcess ](Apis/PolymathApi.md#configUpdateActiveProcessPost)      | Update foreground active process (Linux only) |
+| [**POST** /config/updateInputLanguage ](Apis/PolymathApi.md#configUpdateInputLanguagePost)      | Update active input language (Linux only)     |
+| [**POST** /config/updateProcesses](Apis/PolymathApi.md#configUpdateProcessesPost)               | Update list of active processes on Linux      |
+| [**GET** /docs ](Apis/PolymathApi.md#docsGet)                                                   | Link to documentation                         |
 
 <a name="detection-overrides"></a>
 
@@ -57,9 +57,13 @@ Any authenticated request counts, so an application that posts more often than e
 ## Documentation for Models
 
 - [ActiveProcessRequest](./Models/ActiveProcessRequest.md)
+- [Color](./Models/Color.md)
 - [ErrorResponse](./Models/ErrorResponse.md)
-- [GenericTileAddRequest](./Models/GenericTileAddRequest.md)
+- [GenericGraphUpdateRequest](./Models/GenericGraphUpdateRequest.md)
+- [GenericTileCreationRequest](./Models/GenericTileCreationRequest.md)
+- [GenericTileCreationResponse](./Models/GenericTileCreationResponse.md)
 - [GenericTileUpdateRequest](./Models/GenericTileUpdateRequest.md)
+- [GenericTileUpdateResponse](./Models/GenericTileUpdateResponse.md)
 - [IconImportResponse](./Models/IconImportResponse.md)
 - [IconRequest](./Models/IconRequest.md)
 - [IconRequest_icons_inner](./Models/IconRequest_icons_inner.md)
@@ -69,9 +73,11 @@ Any authenticated request counts, so an application that posts more often than e
 - [KeyAction](./Models/KeyAction.md)
 - [KeyModel](./Models/KeyModel.md)
 - [KeyStyle](./Models/KeyStyle.md)
+- [KeyStyleRequestObject](./Models/KeyStyleRequestObject.md)
 - [Keymap](./Models/Keymap.md)
 - [KeymapResponse](./Models/KeymapResponse.md)
 - [KeystyleRequest](./Models/KeystyleRequest.md)
+- [LegendStyle](./Models/LegendStyle.md)
 - [MessageResponse](./Models/MessageResponse.md)
 - [ProcessUpdateRequest](./Models/ProcessUpdateRequest.md)
 - [WebSocketMessage](./Models/WebSocketMessage.md)
