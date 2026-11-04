@@ -1,22 +1,26 @@
 import ssl
-import os
-import sys
 from pathlib import Path
-import ssl
 
-# Since the Polymath API uses a self signed certificate, we need to pull the cert from the host machine to create a security context
+from .config_service import ConfigService
+
 
 class SslService:
+
+    @staticmethod
     def get_ssl_context():
-        if sys.platform.startswith("win"):
-            base = Path(os.environ["APPDATA"]) / "com.fluxkeyboard" / "polymath" / "tls"
-        elif sys.platform == "darwin":
-            base = Path.home() / "Library" / "Application Support" / "com.flux.polymath" / "tls"
-        else:
-            base = Path(os.environ.get("XDG_DATA_HOME", Path.home() / ".local" / "share" / "com.fluxkeyboard.polymath" / "tls"))
+        config = ConfigService().get_api_config()
 
-        base.mkdir(parents=True, exist_ok=True)
+        if not config:
+            raise FileNotFoundError("Polymath API configuration not found or inactive")
 
-        cafile = base / "cert.pem"
+        cert_path = config.get("publicKeyLocation")
+
+        if not cert_path:
+            raise ValueError("SSL certificate path is missing from Polymath configuration")
+
+        cafile = Path(cert_path).expanduser() / "cert.pem"
+
+        if not cafile.is_file():
+            raise FileNotFoundError(f"SSL certificate not found: {cafile}")
 
         return ssl.create_default_context(cafile=str(cafile))

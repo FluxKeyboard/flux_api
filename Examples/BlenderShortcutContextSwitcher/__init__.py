@@ -8,74 +8,10 @@ bl_info = {
     "category": "System",
 }
 import bpy
-import os
-import subprocess
-import sys
 
-# We need to ensure that certain packages are available that don't come default with Blender python. We install them here
-addon_dir = os.path.abspath(os.path.dirname(__file__))
-
-if addon_dir not in sys.path:
-    sys.path.insert(0, addon_dir)
-
-def has_pip():
-    try:
-        subprocess.check_output([sys.executable, "-m", "pip", "--version"])
-        return True
-    except Exception:
-        return False
-
-def is_installed(module_name):
-    try:
-        __import__(module_name)
-        return True
-    except ImportError:
-        return False
-
-def install_deps():
-    missing = []
-
-    for pkg in ["websockets", "keyring", "plyer"]:
-        if not is_installed(pkg):
-            missing.append(pkg)
-
-    if not missing:
-        return
-
-    if not has_pip():
-        print(
-            "Missing dependencies",
-            f"Missing {missing}, but pip is not available in Blender Python."
-        )
-        return
-
-    for pkg in missing:
-        try:
-            subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
-        except Exception as e:
-            print(
-                "Install failed",
-                f"Failed to install {pkg}: {e}"
-            )
-
-def ensure_package(package):
-    try:
-        __import__(package)
-    except ImportError:
-        python = sys.executable 
-        subprocess.check_call([
-            python, "-m", "pip", "install", package
-        ])
-
-    
-install_deps()
-
-
-
-
-# After installing all the needed packages, we can finish importing
-from polymathConnectionManager import PolymathConnectionManager
 from plyer import notification
+
+from .polymathConnectionManager import PolymathConnectionManager
 
 # If there are any messages we need to send to the user, we send them as an OS level notification through here
 def notify(title, message):

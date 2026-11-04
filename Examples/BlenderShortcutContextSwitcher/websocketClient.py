@@ -3,7 +3,7 @@ import threading
 import time
 import websockets
 import asyncio
-from ssl_service import SslService
+from .ssl_service import SslService
 
 
 

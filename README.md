@@ -8,10 +8,7 @@ The Flux Polymath API uses a self signed TLS certificate. These certificates are
 
 The certificates are fingerprinted to ensure no manipulation, this is to help prevent someone from accessing a user's machine and attempting a man in the middle attack. The same is also done for the API settings as a whole.
 
-For your plugins you will need to get the certificate to create a security context in your requests. The locations are stored in the keys.json file under the key "publicKeyLocation".
-
-Both wayland examples show how to deterministically generate the path to the config folder.
-
+For your plugins you will need to get the certificate to create a security context in your requests. The locations are stored in the keys.json file under the key "publicKeyLocation", an example on finding the config files necesarry to create a security context can be found in the [Blender example](Examples/BlenderShortcutContextSwitcher/config_service.py).
 
 <a name="documentation-for-api-endpoints"></a>
 
@@ -29,8 +26,8 @@ All URIs are relative to _https://localhost:PORT/v1_, _https://localIp:PORT/v1_,
 | [**PUT** /config/addKeystyleToAppearance](Apis/PolymathApi.md#configAddKeystyleToAppearancePut) | Add keystyle(s) to appearance                 |
 | [**WSS** /configChange ](Apis/PolymathApi.md#configChangeGet)                                   | WebSocket session stream                      |
 | [**POST** /config/import ](Apis/PolymathApi.md#configImportPost)                                | Import .flux configuration file               |
-| [**POST** /config/addGenericTile ](Apis/PolymathApi.md#configGenericCreatePost)            | Creates a generic tile of the given type      |
-| [**PUT** /config/updateGenericTile ](Apis/PolymathApi.md#configGenericUpdatePut)              | Updates the current data of a generic tile    |
+| [**POST** /config/addGenericTile ](Apis/PolymathApi.md#configGenericCreatePost)                 | Creates a generic tile of the given type      |
+| [**PUT** /config/updateGenericTile ](Apis/PolymathApi.md#configGenericUpdatePut)                | Updates the current data of a generic tile    |
 | [**GET** /config/keymapData](Apis/PolymathApi.md#configKeymapDataGet)                           | Get keymap data                               |
 | [**POST** /config/save ](Apis/PolymathApi.md#configSavePost)                                    | Save configuration to keyboard                |
 | [**POST** /config/updateActiveProcess ](Apis/PolymathApi.md#configUpdateActiveProcessPost)      | Update foreground active process (Linux only) |

@@ -1,7 +1,7 @@
 import json
 import urllib.request
 import urllib.error
-from ssl_service import SslService
+from .ssl_service import SslService
 
 class ApiClient:
     def __init__(self, port, api_key=None):

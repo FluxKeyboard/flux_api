@@ -1,0 +1,37 @@
+
+schema_version = "1.0.0"
+
+id = "polymath_blender"
+version = "1.0.1"
+name = "Blender Context Polymath Updater"
+tagline = "Connect Blender to Polymath"
+maintainer = "Flux"
+
+type = "extensino"
+
+tags = ["System", "Development"]
+
+blender_version_min = "4.5.0"
+
+license = ["SPDX:GPL-3.0-or-later"]
+
+platforms = [
+    "windows-x64",
+    "linux-x64",
+    "macos-x64",
+    "macos-arm64"
+]
+
+wheels = [
+    "./wheels/websockets-17.4-py3-none-any.whl",
+    "./wheels/keyring-25.7.0-py3-none-any.whl",
+    "./wheels/jaraco_context-6.1.2-py3-none-any.whl",
+    "./wheels/jaraco_functools-4.6.0-py3-none-any.whl",
+    "./wheels/jaraco.classes-3.4.0-py3-none-any.whl",
+    "./wheels/more_itertools-11.2.1-py3-none-any.whl",
+    "./wheels/pywin32_ctypes-0.2.3-py3-none-any.whl",
+    "./wheels/plyer-2.1.0-py2.py3-none-any.whl"
+]
+
+[permissions]
+network = "Connects to the local Polymath API"

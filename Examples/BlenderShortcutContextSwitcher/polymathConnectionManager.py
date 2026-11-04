@@ -1,9 +1,9 @@
 import threading
 
-from config_service import ConfigService
-from secretStore import SecretStore
-from apiClient import ApiClient
-from websocketClient import WebSocketClient
+from .config_service import ConfigService
+from .secretStore import SecretStore
+from .apiClient import ApiClient
+from .websocketClient import WebSocketClient
 
 class PolymathConnectionManager:
     def __init__(self, notificationCallback):
